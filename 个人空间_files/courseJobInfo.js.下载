@@ -1,0 +1,157 @@
+var winDiv = $(window);
+function isVisibleDiv(checDiv) {
+    try {
+        var itemOffsetTop = checDiv.offset().top;
+        var itemOuterHeight = checDiv.outerHeight();
+        var winHeight = winDiv.height();
+        var winScrollTop = winDiv.scrollTop();
+        if(!(winScrollTop > itemOffsetTop+itemOuterHeight) && !(winScrollTop < itemOffsetTop-winHeight)) {
+            return true;
+        } else {
+            return false;
+        }
+    }catch (ex) {
+        console.log(ex)
+    }
+
+    return false;
+}
+
+var requestArray = [];
+function parseCourseList(array) {
+    var queryArray = [];
+    array.forEach(function (obj) {
+        var objDiv = $("."+obj);
+        var cover = objDiv.find(".course-cover");
+        if(isVisibleDiv(cover) && cover.find(".btm-cover").length === 0 && cover.find(".not-open-tip").length === 0) {
+            queryArray.push(obj);
+        }
+    });
+
+    batchLoadJobInfo(queryArray);
+}
+
+function batchLoadJobInfo(array) {
+    if(array.length === 0) {
+        return;
+    }
+
+    if(array.length <= 20) {
+        loadJobInfo(array);
+    } else {
+        var temp = [];
+        for(var i = 0; i < array.length; i++) {
+            temp.push(array[i]);
+            if(i % 20 === 0) {
+                loadJobInfo(temp);
+                temp = [];
+            }
+        }
+
+        if(temp.length > 0) {
+            loadJobInfo(temp);
+        }
+    }
+}
+
+function loadJobInfo(array) {
+    var jobTip = $("#jobTip").val();
+    var clazzInfoArray = [];
+    array.forEach(function (indexObj) {
+        var thisDiv = $("." + indexObj);
+        var info = thisDiv.attr("info");
+        if(typeof info != "undefined" && requestArray.indexOf(info) < 0 && thisDiv.find(".course-cover .btm-cover").length === 0) {
+            requestArray.push(info);
+            clazzInfoArray.push(info);
+        }
+    })
+
+    $.ajax({
+        type : "get",
+        url : "/mooc2-ans/mycourse/stu-job-info",
+        data : {
+            clazzPersonStr: clazzInfoArray.join(","),
+        },
+        dataType : "json",
+        success : function(data) {
+            if(data.status && typeof data.jobArray != "undefined" && data.jobArray.length > 0){
+                data.jobArray.forEach(function (indexObj) {
+                    var jobCount = indexObj.jobCount;
+                    var jobFinishCount = indexObj.jobFinishCount;
+                    var jobRate = indexObj.jobRate;
+                    var clazzId = indexObj.clazzId;
+
+                    var htmlText = "<div class=\"btm-cover clearfix\">\n" +
+                        "     <div class=\"fl l-txt\">"+jobTip+": "+jobFinishCount+"/"+jobCount+"</div>\n" +
+                        "     <div class=\"fr\">\n" +
+                        "     <div class=\"bar-box\">\n" +
+                        "          <div class=\"w-bar\" style=\"width: "+jobRate+"%\"></div>\n" +
+                        "     </div>\n" +
+                        "          <span class=\"bar-tip\">"+jobRate+"%</span>\n" +
+                        "     </div>\n" +
+                        "     </div>";
+
+                    if(parseInt(jobCount) > 999) {
+                         htmlText = "<div class=\"btm-cover clearfix\">\n" +
+                            "     <div class=\"fl l-txt\" style='font-size: 12px'>"+jobTip+": "+jobFinishCount+"/"+jobCount+"</div>\n" +
+                            "     <div class=\"fr\">\n" +
+                            "     <div class=\"bar-box\">\n" +
+                            "          <div class=\"w-bar\" style=\"width: "+jobRate+"%\"></div>\n" +
+                            "     </div>\n" +
+                            "          <span class=\"bar-tip\">"+jobRate+"%</span>\n" +
+                            "     </div>\n" +
+                            "     </div>";
+                    }
+
+                    var objDiv = $(".stu_"+clazzId);
+                    if(objDiv.find(".course-cover .btm-cover").length === 0) {
+                        objDiv.find(".course-cover").append(htmlText);
+                    }
+                })
+            }
+        }
+    });
+}
+
+var lastTime = 0;
+function loadJobFinishProgress() {
+    try {
+        var loadStuJobInfo = $("#loadStuJobInfo").val();
+        if(typeof loadStuJobInfo == "undefined" || loadStuJobInfo != "true") {
+            return;
+        }
+
+        var time = new Date().getTime();
+        if(time - lastTime > 100) {
+            lastTime = time;
+            var array = [];
+            $(".learnCourse").each(function () {
+                if($(this).is(":visible")) {
+                    var isVisible = isVisibleDiv($(this).find(".course-cover"));
+                    var info = $(this).attr("info");
+                    if(isVisible && requestArray.indexOf(info) < 0 && $(this).find(".course-cover .btm-cover").length === 0) {
+                        array.push($(this).attr("roleId"));
+                    }
+                }
+            });
+
+            setTimeout(parseCourseList(array),400);
+        }
+    }catch (ex) {
+        console.log(ex)
+    }
+}
+
+$(document).ready(function () {
+    $(".course-list-con").on('click','.btm-cover',function(){
+        try {
+            $(this).parent().find("img").eq(0).click();
+        }catch (ex){
+            console.log(ex);
+        }
+    })
+
+    $(window).scroll(function () {
+        loadJobFinishProgress();
+    });
+});
