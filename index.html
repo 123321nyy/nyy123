@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://i.chaoxing.com/base?vflag=true&fid=29&backUrl=http://v2.chaoxing.com -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>个人空间</title>
+    <meta name="referrer" content="no-referrer">
+    <meta name="referrer" content="never">
+    <meta name="referrer" content="same-origin">
+		
+	<link rel="stylesheet" href="./个人空间_files/layui.css" type="text/css">
+    <link rel="stylesheet" href="./个人空间_files/global.css">
+	<link rel="stylesheet" href="./个人空间_files/appicons1.css">
+    <link rel="stylesheet" href="./个人空间_files/iconStyle.css">
+    <link rel="stylesheet" href="./个人空间_files/iconStyleMore.css">
+        <link rel="stylesheet" href="./个人空间_files/common.css">
+
+	<link rel="stylesheet" href="./个人空间_files/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="./个人空间_files/index.css">
+	<link rel="stylesheet" href="./个人空间_files/company-popup.css">
+		
+    <script type="text/javascript" src="./个人空间_files/jquery-3.6.0.min.js.下载"></script>
+	<script type="text/javascript" src="./个人空间_files/cookie.js.下载"></script>
+	<script type="text/javascript" src="./个人空间_files/layui.js.下载"></script>
+    <!-- 控制收件箱红点显示样式 -->
+    <style>
+        .box-new-message {
+            position: relative !important;
+        }
+        .box-new-message.disable::after {
+            display: none;
+        }
+        .box-new-message::after {
+            display: block;
+            position: absolute;
+            right: 160px;
+            top: 17px;
+            width: 8px;
+            height: 8px;
+            content: " ";
+            background: #ff0000;
+            border-radius: 50%;
+        }
+
+        .button-like {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .button-like::after {
+            content: "";
+            width: 1px;
+            height: 16px;
+            background: #ffffff;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .button-inner {
+            padding: 5px 2px;
+            border-radius: 25px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .button-inner img {
+            width: 16px;
+            overflow: hidden;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+
+        .icon-shugang {
+            border-radius: 50%;
+            margin-top: 29px;
+            height: 19px;
+            width: 16px;
+            overflow: hidden;
+            vertical-align: middle;
+            margin-left: 4px;
+            margin-right: 3px;
+        }
+
+        #sitePopup .hover-cla {
+            background-color: #fcf5eb;
+        }
+        #sitePopup ul {
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        ::-webkit-scrollbar {
+            /*滚动条整体样式*/
+            width: 4px;
+            /*高宽分别对应横竖滚动条的尺寸*/
+            /* height: 6px; */
+        }
+        ::-webkit-scrollbar-thumb {
+            /*滚动条里面小方块*/
+            border-radius: 6px;
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+            background: #d1d0d0;
+        }
+        ::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+            border-radius: 6px;
+            background: #fafafa;
+        }
+        .popup .window .company:after {
+            content: none;
+        }
+        .header #item_search.space-weight .search-input {
+            border: 1px solid #F1F3F6;
+            background: #F1F3F6;
+            font-family: "PingFang SC";
+        }
+        .header #item_search.space-weight .search-input input {
+            color: #4e5969;
+        }
+        .header #item_search.space-weight .search-input input::placeholder {
+            color: #86909C;
+        }
+        .header #item_search.space-weight .search-input span {
+            background: url("newSpace/images/icon-search.png") no-repeat center;
+            background-size: 18px;
+        }
+    </style>
+<style type="text/css">.floatLayer {position: fixed;z-index: 9;right: 0px;display: block;width: 132px;}
+.floatLayer a {display: block;width: 132px;height: 50px;line-height: 50px;margin-bottom: 20px;font-size: 16px;color: #3A8BFF;background: #ffffff;border-radius: 32px;-webkit-box-shadow: 0px 2px 10px 0px rgba(31, 35, 41, 0.1);box-shadow: 0px 2px 10px 0px rgba(31, 35, 41, 0.1);}
+.floatLayer a img {float: left;margin: 13px 8px 13px 18px;width: 24px;height: 24px;}
+.floatLayer a:hover img, .floatLayer a:hover span {opacity: 0.7;}
+.color-white {color: #FFFFFF;}
+.floatLayer .update-notice{position:relative}
+.floatLayer .update-notice a{position:relative}
+.floatLayer .update-notice .mark-red{position:absolute;width:8px;height:8px;background:#F33F34;top:8px;right:10px;border-radius:50%}
+.floatLayer .update-notice .notice-tip{position:absolute;top:5px;left:-103px;background:#3A8BFF;border-radius:4px;padding:10px;line-height:20px}
+.floatLayer .update-notice .notice-tip:after{content:'';position:absolute;top:13px;right:-7px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:7px solid #3A8BFF}
+</style></head>
+<body>
+
+	<!-- 默认状态下/通栏状态下给  左侧设置宽度
+		<style>
+			.con .con-left {
+				width: 220px;
+			}
+		</style>
+	-->
+	<!-- 左侧划过 背景色或者颜色样式 -->
+        <style>
+            .con .con-left .menu  a:hover{
+                background:#2439A9;
+            }
+        </style>
+	<!-- 左侧选中 背景色或者颜色样式 -->
+        <style>
+            .con .con-left .menu  a.active{
+                background: #5965C9;
+            }
+        </style>
+	<!-- 左侧选中 字体颜色样式 -->
+		<style>
+            .con .con-left .menu  a.active{
+                color: #ffffff;
+            }
+        </style>
+<!-- 左侧默认 字体颜色样式 -->
+    <style>
+        .con .con-left .menu  a{
+            color: #ffffff;
+        }
+    </style>
+		 <style>
+        	.con .con-right .right-con .center{
+        		margin: 0 auto!important;
+        	}
+		 </style>
+	
+    <!-- 空间默认头部/设置头部引入-->
+	<!-- 左侧选中 背景色或者颜色样式 -->
+		 <style>
+			.header .space-con .nav li.user .user-popup{
+                background: url("http://p.ananas.chaoxing.com/star3/origin/8dbc96051e7bc028511bb1a5c48bf7d8") no-repeat center right;
+                background-size: cover;
+            }
+		</style>
+        <div class="header" style="background: url(&quot;http://p.ananas.chaoxing.com/star3/origin/8dbc96051e7bc028511bb1a5c48bf7d8&quot;) center center / cover no-repeat; color: rgb(255, 255, 255); height: 80px;">
+            <div class="space-unit" style="height: 80px;">
+    				<h3 tabindex="0" id="siteName" title="广东科学技术职业学院(学生)" openurl="">
+    						广东科学技术职业学院(学生)
+    				</h3>
+            </div>
+            <div class="space-con" style="height: 80px;">
+                <div class="head-nav" style="display:none;" id="headNav">
+                    <div class="head-nav-list">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="head-nav-more">
+                        <div class="head-more"></div>
+                        <div class="head-more-list">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+				<div class="space-search" id="item_search" style="display: none;">
+					<div class="space-search-con">
+						<div class="space-type-wrap">
+							<div class="type-input"></div>
+							<ul class="type-list">
+							</ul>
+						</div>
+						<div class="space-search-wrap">
+							<div class="search-input">
+								<input id="sw" type="text" placeholder="搜索">
+								<script type="text/javascript">
+									_jsonpSuggest = function(e) {
+										var result = [];
+										if (unescape(e.q) == jQuery("#sw").val()) {
+											jQuery(unescape(e.values).split("|")).each(function() {
+												result.push(this);
+											})
+										}
+										window.sugresult = result.join("\r\n");
+									};
+									try {
+										("#sw").ready(function() {//获取提示词接口
+											("#sw").suggest('https://relt.duxiu.com/swjson.jsp?jsoncallback=_jsonpSuggest', {
+												onSubmit: function(e) {
+													indexsearch(e);
+												},
+												isdomin: '1'
+											});
+										});
+									} catch (e) {}
+								</script>
+								<span class="icon-search"></span>
+							</div>
+						</div>
+						<div class="search-result ac_results" id="search">
+
+						</div>
+					</div>
+				</div>
+                <ul class="nav fr" style="position:relative">
+					<!-- 切换单位显示效果 -->
+					<li tabindex="-1" class="appCode" style="color: #ffffff;display: block;">输入邀请码</li>
+                    <li class="user">
+                        <img class="icon-head" src="./个人空间_files/201902747_80">
+						<h3 aria-label="账号：聂奕宇" tabindex="0">聂奕宇</h3>
+                        <span class="icon-down02  icon-h-arrow-l"></span>
+                        <div class="user-popup" style="display: none;">
+                            <ul>
+									<!--科研图书馆定制 http://pm.chaoxing.com/issues/327668 复旦大学附属中学定制 http://pm.chaoxing.com/issues/338855 http://pm.chaoxing.com/issues/349469 http://pm.chaoxing.com/issues/350732-->
+										<li onclick="setUrl(&#39;account&#39;,&#39;/base/settings?t=1725343625716&#39;);">账号管理</li>
+									<!--
+    								<li onclick="setUrl('recentsapp','/base/getRecentsApp');">最近使用</li>
+    								-->
+													<li onclick="siteListShow();">切换单位/角色</li>
+                				<li onclick="logout(7)">退出空间</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+<script>
+	function logout(space){
+		var url = window.location.protocol+"//"+window.location.host;
+		var refer=document.URL;
+		var source = getCookie("source");
+		var backUrl='http://v2.chaoxing.com';
+		if(backUrl!=null && backUrl!=undefined && backUrl!='' && backUrl!='null' ){
+			url=backUrl
+		}else{
+    		if(refer.indexOf("i.chaoxing.com") != -1){
+    			url = window.location.protocol+"//i.chaoxing.com";
+    			if(source.indexOf("num")!=-1){
+					var flag= "v"+source.substring(3);
+					if(flag!=null && flag!=undefined && flag=='v100'){
+						flag="cv";
+					}
+    				url = window.location.protocol+"//"+flag+".chaoxing.com?fid="+getCookie("fid");
+    			}
+    		}
+		}
+		setCookie('source','',1,"chaoxing.com");
+        $.ajax({
+            url : "/base/logout",
+            success : function() { 
+            }
+        })
+		setCookie('source','',1,"chaoxing.com");
+        if(window.location.host == "ddxt.sysu.edu.cn") {
+        	window.location.href = "https://ddxt.sysu.edu.cn/passport/logout.html?refer="+encodeURI(url) + "&space" + space;
+        }else {
+        	var logoutUrl = window.location.protocol+"//passport2.chaoxing.com/logout.html?refer="+encodeURI(url);
+			var model_logoutUrl = "";
+			var templateSetting_logoutUrl = "";
+			if (model_logoutUrl != null && model_logoutUrl != undefined && model_logoutUrl != '' && model_logoutUrl != 'null') {
+				logoutUrl = model_logoutUrl.indexOf("?") > -1 ? model_logoutUrl + "&refer=" + encodeURI(url) : model_logoutUrl + "?refer=" + encodeURI(url);
+			} else if (templateSetting_logoutUrl != null && templateSetting_logoutUrl != undefined && templateSetting_logoutUrl != '' && templateSetting_logoutUrl != 'null') {
+				logoutUrl = templateSetting_logoutUrl.indexOf("?") > -1 ? templateSetting_logoutUrl + "&refer=" + encodeURI(url) : templateSetting_logoutUrl + "?refer=" + encodeURI(url);
+			}
+			logoutUrl += "&space=" + space;
+			window.location.href = logoutUrl;
+        }
+	}
+    $(document).ready(function() {
+        $(".user").mouseover(function(){
+            $(".user-popup").show();
+        });
+        $(".user").mouseout(function(){
+            $(".user-popup").hide();
+        });
+
+		if ($("#item_search .type-list li").length === 1) {
+			$("#item_search").addClass('space-one')
+		}
+
+		const searchId = localStorage.getItem('searchId')
+		if (searchId) {
+			const cacheSearchDom = $('#item_search .type-list li[search-id=' + searchId + ']');
+			if (cacheSearchDom.length === 0) {
+				$('#item_search .type-list li:first-child').click()
+			} else {
+				cacheSearchDom.click()
+			}
+		} else {
+			$('#item_search .type-list li:first-child').click()
+		}
+    })
+
+
+	var searchShow = '';
+	var search = '';
+	var color = '';
+	if (searchShow == 1 && search == 2) {
+		$("#item_search").addClass("space-right")
+	} else if (searchShow == 1 && search == 0) {
+		$("#item_search").addClass("space-left")
+	} else if(searchShow == 1 && search == 1){
+		$("#item_search").addClass("space-center")
+	}else {
+		$("#item_search").hide()
+	}
+
+	if (searchShow == 1 && color == 1) {
+		$("#item_search").addClass("space-weight")
+	} else if(searchShow == 1 && color == 0) {
+		$("#item_search").removeClass("space-weight")
+	}
+
+
+	function downloadPc(){
+		window.open("http://appmarket.chaoxing.com/static/custom/xxt/pc/download.html");
+	}
+	
+	function downloadZb(){
+		window.open("https://zhibo.chaoxing.com/download");
+	}
+
+	$(".header .space-unit img,h3").on("click", function (e) {
+		e.stopPropagation();
+		var openUrl = $(this).attr("openurl");
+		var topUrlType = "";
+		if (topUrlType == "1") {
+			openUrl = '';
+		}
+		if (openUrl != null && openUrl != undefined && openUrl != '' && openUrl != 'null') {
+			window.parent.open(openUrl);
+		}
+	})
+
+
+	var cache = [];
+	var cacheSize = 0;
+	// 头部检索
+	$("#item_search input").on('input propertychange', function () {
+		// 默认给建议
+		if ($('#item_search .type-list .active').attr('type') !== '0') {
+			$("#search").hide();
+			return
+		}
+		var q = $(this).val(); // 输入框内的值
+		if (q.length >= 1) {
+			cached = checkCache(q);
+			if (cached) {
+				displayItems(cached['items'], q);
+			} else {
+				/*$(this).parent().next().show();*/
+				window.sugresult = "";
+				$.getScript("https://relt.duxiu.com/swjson.jsp?jsoncallback=_jsonpSuggest" + "&sw=" + encodeURIComponent(q) + "&t=" + new Date().getTime(), function (data) {
+					var txt = window.sugresult;
+					$("#search").hide();
+					var items = parseTxt(txt, q);
+					displayItems(items, q);
+					addToCache(q, items, txt.length);
+				});
+			}
+		} else {
+			$(this).parent().next().hide();
+		}
+	});
+	$("#item_search .icon-search").on('click', function () {
+		var val = $("#sw").val();
+		if (val == '') {
+			$("#search").show();
+		} else {
+			let searchUrlDom = $('#item_search .type-list .active');
+			const url =searchUrlDom.attr('url')
+			const type =searchUrlDom.attr('type')
+			if(type==='0'){
+				// 跳转到发现
+				window.open("https://ss.zhizhen.com/s?sw=" + encodeURIComponent(val))
+			}else{
+				window.open(url + encodeURIComponent(val))
+			}
+		}
+	});
+
+	function suggest() {
+		var q = $input.val();
+		// 只有默认才建议
+		if (q.length >= 1) {
+			cached = checkCache(q);
+			if (cached) {
+				displayItems(cached['items']);
+			} else {
+				window.sugresult = "";
+				$.getScript("https://relt.duxiu.com/swjson.jsp?jsoncallback=_jsonpSuggest" + "&sw=" + encodeURIComponent(q) + "&t=" + new Date().getTime(), function (data) {
+					var txt = window.sugresult;
+					$(".search-result").hide();
+					var items = parseTxt(txt, q);
+					displayItems(items);
+					addToCache(q, items, txt.length);
+				});
+			}
+		} else {
+			$(".search-result").hide();
+		}
+	}
+
+	// 检查缓存是否有
+	function checkCache(q) {
+
+		for (var i = 0; i < cache.length; i++)
+			if (cache[i]['q'] == q) {
+				cache.unshift(cache.splice(i, 1)[0]);
+				return cache[0];
+			}
+
+		return false;
+
+	}
+
+	// 将结果放到缓存
+	function addToCache(q, items, size) {
+
+		while (cache.length && (cacheSize + size > 65536)) {
+			var cached = cache.pop();
+			cacheSize -= cached['size'];
+		}
+
+		cache.push({
+			q: q,
+			size: size,
+			items: items
+		});
+
+		cacheSize += size;
+
+	}
+
+	function displayItems(items, q) {
+		if (!items)
+			return;
+		if (!items.length) {
+			$(".search-result").hide();
+			return;
+		}
+		var html = '';
+		for (var i = 0; i < items.length; i++) {
+			html += '<li>';
+			html += '<a href="https://ss.zhizhen.com/s?sw=' + q + '">';
+			html += '<h5>' + items[i] + '</h5>';
+			html += '</a>';
+			html += '</li>';
+		}
+
+
+		$(".search-result").html(html).show();
+		$(".search-result").children('li').mouseover(function () {
+			$(".search-result").children('li').removeClass("ac_over");
+			$(this).addClass("ac_over");
+		}).click(function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			selectCurrentResult();
+		});
+	}
+
+	// 填充搜索下拉框
+	function parseTxt(txt, q) {
+		var items = [];
+		var tokens = txt.split("\n");
+		for (var i = 0; i < tokens.length; i++) {
+			var token = $.trim(tokens[i]);
+			if (token) {
+				token = token.replace(new RegExp(q, 'ig'), function (q) {
+					return '<span class="' + "ac_match" + '">' + q + '</span>'
+				});
+				items[items.length] = token;
+			}
+		}
+		return items;
+	}
+
+	function getCurrentResult() {
+		var $searchResult = $(".search-result");
+		if (!$searchResult.is(':visible')) return false; // 如果搜索结果框不可见，直接返回 false
+
+		var $currentResult = $searchResult.children('li.ac_over');
+		if ($currentResult.length === 0) return false; // 如果没有选中的结果，返回 false
+
+		return $currentResult; // 返回当前选中的结果
+	}
+
+	function selectCurrentResult() {
+		var $currentResult = getCurrentResult();
+		if ($currentResult) {
+			$("#sw").val($currentResult.text());
+			$(".search-result").hide()
+		}
+	}
+	// 查询分类
+	$("#item_search .type-input").click(function () {
+		$(this).toggleClass('type-slide');
+		$(this).next().slideToggle('fast');
+	})
+	// 选择分类
+	$("#item_search .type-list li").click(function () {
+		var val = $(this).text();
+		$(this).addClass('active').siblings().removeClass('active');
+		$(".type-input").text(val).removeClass('type-slide');
+		$(".type-list").slideUp('fast');
+		localStorage.setItem('searchId',$(this).attr('search-id'))
+	})
+</script>
+
+    <div class="con">
+		
+		
+    <div class="con-left con-left-float" style="background: rgb(77, 88, 181); color: rgb(255, 255, 255); top: 100px; height: calc(-120px + 100vh);">
+			<div class="user-block">
+				<img class="head-img" src="./个人空间_files/201902747_80">
+				<p class="user-name">聂奕宇</p>
+					<div class="signature-wrap">
+							<div class="signature" id="signature">好果汁</div>
+							<div class="signature-con" id="signatureCon" style="left: 60px; top: 260px; display: none;"><img src="./个人空间_files/icon-link.png">好果汁</div>
+					</div>
+			</div>
+        <div class="menu mCustomScrollbar _mCS_1" style="height: calc(100vh - 326px);"><div id="mCSB_1" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+            <div role="menubar" class="menubar">
+    					
+									
+									
+						
+    					<a role="menuitem" focus_element="0" tabindex="0" name="首页" id="first527691" onclick="setUrl(&#39;527691&#39;,&#39;https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;首页&#39;);" imgname="icon-home" dataurl="https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd" class="">
+								<span class="icon-space icon-sy"></span>
+							<h5 title="首页">
+                						首页
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="常用" id="first527692" onclick="setUrl(&#39;527692&#39;,&#39;https://i.chaoxing.com/base/indexNew?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;常用&#39;);" imgname="icon-home" dataurl="https://i.chaoxing.com/base/indexNew?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-more-s"></span>
+							<h5 title="常用">
+                						常用
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="1" tabindex="-1" name="课程" id="first135766" onclick="setUrl(&#39;135766&#39;,&#39;https://mooc2-ans.chaoxing.com/visit/interaction?showModuleType=3&amp;s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;课程&#39;);" imgname="icon-home" dataurl="https://mooc2-ans.chaoxing.com/visit/interaction?showModuleType=3&amp;s=3c8eefa7939e3f1a4594865371fa7abd" aria-label="课程菜单项已访问" class="active">
+								<span class="icon-space icon-zy-s"></span>
+							<h5 title="课程">
+                						课程
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="应用中心" id="first527693" onclick="setUrl(&#39;527693&#39;,&#39;https://i.chaoxing.com/base/app?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;应用中心&#39;);" imgname="icon-home" dataurl="https://i.chaoxing.com/base/app?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-yy"></span>
+							<h5 title="应用中心">
+                						应用中心
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="笔记" id="first527695" onclick="setUrl(&#39;527695&#39;,&#39;https://groupyd2.chaoxing.com/pc/activity/activityList?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;笔记&#39;);" imgname="icon-home" dataurl="https://groupyd2.chaoxing.com/pc/activity/activityList?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-bj"></span>
+							<h5 title="笔记">
+                						笔记
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="消息" id="first527696" onclick="setUrl(&#39;527696&#39;,&#39;https://im.chaoxing.com/webim/me?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;消息&#39;);" imgname="icon-home" dataurl="https://im.chaoxing.com/webim/me?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-xx"></span>
+							<h5 title="消息">
+                						消息
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="小组" id="first527697" onclick="setUrl(&#39;527697&#39;,&#39;https://groupweb.chaoxing.com/pc/circle/circleIndex?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;小组&#39;);" imgname="icon-home" dataurl="https://groupweb.chaoxing.com/pc/circle/circleIndex?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-xz"></span>
+							<h5 title="小组">
+                						小组
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="云盘" id="first527698" onclick="setUrl(&#39;527698&#39;,&#39;https://pan-yz.cldisk.com/pcuserpan/index?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;云盘&#39;);" imgname="icon-home" dataurl="https://pan-yz.cldisk.com/pcuserpan/index?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-yp"></span>
+							<h5 title="云盘">
+                						云盘
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="通讯录" id="first527699" onclick="setUrl(&#39;527699&#39;,&#39;https://contactsyd.chaoxing.com/pc/contacts/home?s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;通讯录&#39;);" imgname="icon-home" dataurl="https://contactsyd.chaoxing.com/pc/contacts/home?s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-txl"></span>
+							<h5 title="通讯录">
+                						通讯录
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+    					
+						
+    					<a role="menuitem" focus_element="0" tabindex="-1" name="选课成绩查询" id="first128721" onclick="setUrl(&#39;128721&#39;,&#39;https://i.chaoxing.com/wfw/space/redirectUrl?fid=29&amp;type=3&amp;mAppId=8717286&amp;s=3c8eefa7939e3f1a4594865371fa7abd&#39;,this,&#39;0&#39;,&#39;选课成绩查询&#39;);" imgname="icon-home" dataurl="https://i.chaoxing.com/wfw/space/redirectUrl?fid=29&amp;type=3&amp;mAppId=8717286&amp;s=3c8eefa7939e3f1a4594865371fa7abd">
+								<span class="icon-space icon-zy-s"></span>
+							<h5 title="选课成绩查询">
+                						选课成绩查询
+							</h5>
+							<span class="arrow icon-uniE900"></span>
+						</a>
+            </div>
+        </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; height: 446px; top: 0px; display: block; max-height: 490px;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+		<div class="menu-slide">
+			<span class="more-icon-mune"></span>
+		</div>
+    </div>
+	<script type="text/javascript" src="./个人空间_files/lang.js.下载"></script>
+	<script type="text/javascript" src="./个人空间_files/jquery.min.js.下载"></script>
+	<script>
+		jQuery(document).ready(function () {
+			changeLanguage();
+		});
+		var scheme='https';
+		if(scheme!=null && scheme!=undefined && scheme!=''){
+			scheme=scheme+'://'+window.location.host;
+		}else{
+			scheme='http://'+window.location.host;
+		}
+		let topHeight = ''
+		if (topHeight&&'true') {
+			topHeight = Number(topHeight)
+		} else {
+			topHeight =80
+		}
+		var navFlag=false;
+
+		function setRightHeight(height) {
+			$(".con-right .right-con ").css("margin-top",height).css("height", "calc(100vh - " + (height) + "px)")
+		}
+		$(document).ready(function(){
+			if($("#first96313").length>0){
+				var url='https';
+				var fid = '29';
+				var uid =  '201902747';
+				if (fid!=null && fid!=undefined && fid!="" && uid!=null && uid!=undefined && uid!=""){
+					if(url!=null && url!=undefined && url!=''){
+						url = url+'://'+'fdsmonline.px.chaoxing.com/finance/order/checkSfkp?schoolId=';
+					}else{
+						url='http://fdsmonline.px.chaoxing.com/finance/order/checkSfkp?schoolId=';
+					}
+					$.ajax({
+						url:url+fid+'&uid='+uid,
+						dataType:'json',
+						type:'get',
+						success:function(data){
+							if (data.status){
+								$(".red-point").show()
+							}
+						}
+					})
+				}
+			}
+			// 个性签名
+			if( $(".signature-wrap").length>0){
+                let signatureEle = $(".signature-wrap");
+                let signatureOffSetT = signatureEle.offset().top + signatureEle.height() + 10,
+                    signatureOffSetL = $("#signature").offset().left;
+                $("#signatureCon").css({
+                    "left": signatureOffSetL,
+                    "top": signatureOffSetT
+                })
+                $("#signature").mouseenter(function () {
+        
+                    $("#signatureCon").fadeIn("fast");
+                }).mouseleave(function () {
+                    $("#signatureCon").fadeOut("fast");
+                })
+			}
+			setRightHeight(topHeight)
+			if("https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd".indexOf("/base/index")!=-1 || "https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd".indexOf("/res/pc/curriculum/schedule.html")!=-1){
+				$("#appDownload").show();
+			}else{
+				$("#appDownload").hide();
+			}
+			var backgroundFlag="#ffffff";
+			if("https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd".indexOf("/education/student/stuActiveListEducation")!=-1){
+				backgroundFlag="none";
+			}
+			$("#mainright").html('<iframe id="frame_content" name="frame_content"  allowfullscreen="true" allowtransparency="true"  frameborder="0" scrolling="auto" style="border: 0px;height:calc(100vh - 80px); float:left;position: relative;z-index: 99; background:'+backgroundFlag+';" width="100%" src=""></iframe>');
+            
+			if(navFlag){
+				var _data=$("#first"+"527691");
+				setNavList( "527691", "https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd",_data,"0");
+			}else{
+				$("#frame_content").attr("src", "https://kb.chaoxing.com/res/pc/curriculum/schedule.html?s=3c8eefa7939e3f1a4594865371fa7abd");
+			}
+            try{
+                iFrameResizeSetting();
+            }catch(error){
+                 
+            }
+            $('html , body').animate({scrollTop: 0},0);
+            $("#item_first").html("首页");
+			if($(".menubar a.active").length>0){
+				scrollTop()
+			}
+		})
+        function setUrl(id, url,_this,aot_value, app_name){
+			$("#to_top").remove();
+			var navUrl=url;
+			var backHigh=80;
+			var menuTxt=$(_this).attr('name');
+			$(_this).attr('aria-label',menuTxt+'菜单项已访问').siblings().removeAttr('aria-label');
+			$(_this).addClass("active").siblings().removeClass("active");
+			$(_this).attr('focus_element', '1').siblings().attr('focus_element', '0');
+			$(_this).nextAll().attr('tabindex', -1);
+			$("#navName").text(app_name)
+			if(app_name == "首页"){
+				$(".bodyBg").show()
+			}else {
+				$(".bodyBg").hide()
+			}
+			if(id!=null && id=='app'){
+				$("#item_first").hide();
+				if(!navFlag){
+    				$("#item_back").show();
+					backHigh=160;
+					var roleids = '3';
+					$("#item_back").attr("onclick","setUrl('back','"+scheme+"/base/app?fid="+siteFid+"&tid="+tid+"')");
+					setRightHeight(topHeight+64);
+				}
+			}else if(id!=null && id=='market'){
+				$("#item_first").hide();
+				if(!navFlag){
+    				$("#item_back").show();
+					backHigh=160;
+					var dataurl=$(".menu a.active").attr('dataurl');
+    				$("#item_back").attr("onclick","setUrl('back','"+dataurl+"')");
+					setRightHeight(topHeight+64)
+				}
+			}else if(id!=null && id=='common'){
+				$("#item_first").hide();
+    			$("#item_back").hide();
+				setRightHeight(topHeight)
+			}else if(id!=null && id=='index'){
+				$("#item_first").hide();
+				if(!navFlag){
+    				$("#item_back").show();
+					backHigh=160;
+    				$("#item_back").attr("onclick","setUrl('back','"+scheme+"/base/index?fid="+siteFid+"&tid="+tid+"')");
+					setRightHeight(topHeight+64)
+				}
+			}else if(id!=null && id=='back'){
+				if(!navFlag){
+					$("#item_first").show();
+				}
+                $("#item_back").hide();
+				setRightHeight(topHeight)
+			}else if(id!=null && id=='rapp'){
+				$("#item_first").hide();
+				if(!navFlag){
+    				$("#item_back").show();
+					backHigh=160;
+    				$("#item_back").attr("onclick","setUrl('recentsapp','"+scheme+"/base/getRecentsApp')");
+					setRightHeight(topHeight+64)
+				}
+			}else{
+				if( id=='account'){
+					$("#item_first").html('账号管理');
+				}else if( id=='recentsapp'){
+					$("#item_first").html('最近使用');
+				}else{
+					$("#item_first").html($(_this).attr("name"));
+				}
+				if(!navFlag){
+					$("#item_first").show();
+				}
+                $("#item_back").hide();
+				if(aot_value!=1 && aot_value!=2){
+					$(_this).addClass("active").siblings().removeClass("active");
+				}
+				setRightHeight(topHeight)
+			}
+			
+			if(aot_value==1){
+				window.open("/space/out_link.shtml?ename=&burl="+url);
+			}else if(aot_value==2){
+				window.open(url);
+			}else if(aot_value==3){
+				window.location.href="/space/out_link.shtml?ename=&burl="+url;
+			}else if(aot_value==4){
+				window.location.href=url;
+			}else{
+    			if(url.indexOf("/base/index")!=-1 || url.indexOf("/res/pc/curriculum/schedule.html")!=-1){
+    				$("#appDownload").show();
+    			}else{
+    				$("#appDownload").hide();
+    			}
+				if(url.indexOf("/wfw/space/redirectUrl")!=-1 ){
+					$.ajax({
+						type: "post",
+						url: "/wfw/space/verifyApp",
+						data:{tid:tid,fid:siteFid,nappId:id},
+						dataType: "json",
+						async:false,
+						success: function(data){
+							if(data.status){
+								//是 审批/表单 应用，显示权限按钮
+								url=url+"&permissionGroupId="+data.permissionGroupId;
+							}
+						}
+					})
+				}
+				if(url.indexOf("/pcuserpan/index")!=-1){
+					$.ajax({
+						type: "post",
+						url: "/pan/getToken",
+						dataType: "json",
+						async:false,
+						success: function(data){
+							if(data.status){
+								url=url+"&p_auth_token="+data.token;
+							}
+						}
+					})
+				}
+    			if(url.indexOf("/base/app")!=-1 || url.indexOf("/base/index")!=-1 ){
+					if(id==null || id==undefined || id=='' || id!='common'){
+						url=url+"&fid="+siteFid+"&tid="+tid;
+					}
+    			}else{
+					if(url.indexOf("notice.chaoxing.com")!=-1  || url.indexOf("/pc/notice/myNotice")!=-1  ){
+						//$(_this).find(".inform-txt").hide();
+					}else{
+						//$(".inform-txt").show();
+					}
+    			}
+				
+				var backgroundFlag="#ffffff";
+    			if(url.indexOf("/education/student/stuActiveListEducation")!=-1){
+    				backgroundFlag="none";
+    			}
+				$("#mainright").html('<iframe id="frame_content" name="frame_content" allowfullscreen="true" allowtransparency="true"  frameborder="0" scrolling="auto" style="border: 0px; height:calc(100vh - '+backHigh+'px); float:left;position: relative;z-index: 99; background: '+backgroundFlag+';" width="100%" src=""></iframe>');
+                $("#frame_content").attr("src", url);
+				$("#centerInput").attr('tabindex', 0).focus();
+				
+				if(id!=null && id!=undefined && id!='app' && navFlag){
+					setNavList(id, navUrl,_this,aot_value);
+				}
+
+                var offsetTop = $("#frame_content").offset().top;
+                var offsetLeft = $("#frame_content").offset().left;
+                var marObj = {
+                   paddingL: offsetLeft,
+                   paddingT: offsetTop,
+                   paddingR:0,
+                   fullScreen:1
+                };
+                document.getElementById('frame_content').contentWindow.postMessage(JSON.stringify(marObj), "*");
+
+                $('html , body').animate({scrollTop: 0},0);
+                
+			}
+        }
+		        
+        function switchSite(fid,name,_this,wfworg,tid,roleId){
+			var nowFid = '29';
+			if(nowFid!=null && nowFid!=undefined && nowFid!="" && fid!=null && fid!=undefined && fid!="" && nowFid==fid){
+				 location.href = "/base?fid="+fid+"&wfworg="+wfworg+"&tid="+tid;
+				 return;
+			}
+            $(_this).addClass("active").siblings().removeClass("active");
+            $.ajax({
+                url:'/base/switchSite',
+                data:{siteFid:fid,siteName:name,siteTid:tid,siteRoleId:roleId},
+                type:'post',
+				dataType:'json',
+                success:function(data){
+					if(data.status){
+						var schemeType='https';
+						if(schemeType!=null && schemeType!=undefined && schemeType!=''){
+							schemeType='http';
+						}
+						if(data.b){
+							if(data.domain.indexOf(window.location.host)!=-1){
+								location.href = "/base?fid="+fid+"&wfworg="+wfworg+"&tid="+tid;
+							}else{
+    							if(data.domain.indexOf("http://")!=-1 || data.domain.indexOf("https://")!=-1){
+    								window.open(data.domain);
+    							}else{
+    								window.open(schemeType+"://"+data.domain + "/base?fid="+fid+"&wfworg="+wfworg+"&tid="+tid);
+    							}
+							}
+						}else{
+							if(window.location.host.indexOf("i.chaoxing.com")!=-1){
+            					var title="";
+                				if(name!=null && name!=undefined && name!="" && name.length>13){
+                					title = name.substring(0, 13)+"..."
+                				}else{
+            						title=name;
+            					}
+                                $("#siteName").html(title).attr("title",name);
+                                location.href = "/base?fid="+fid+"&wfworg="+wfworg+"&tid="+tid;
+							}else{
+								window.open(schemeType+"://i.chaoxing.com/base?fid="+fid+"&wfworg="+wfworg+"&tid="+tid);
+							}
+
+						}
+					}
+                }
+            })
+        }
+
+		$(document).on("keydown", function (e) {
+			if ($(e.target).attr('data-read') === '已阅读完' && e.keyCode == 9) {
+				if ($(".menu a.active").index() < $(".menu a").length - 1) {
+					$(".menu a").siblings().attr('tabindex', 0);
+					$(".menu a[focus_element='1']").focus();
+				}
+			}
+			/*  if ($(e.target).index() == 0 && $(e.target).parents('.menu').length > 0) {
+                 document.querySelector('#conRight').focus();
+             } */
+			if (e.shiftKey && e.keyCode == 9 && $(e.target).parents('.menu').length > 0) {
+				$(e.target).siblings().attr('tabindex', 0)
+			}
+		});
+		//英文名定位 添加定位滚动效果
+		function scrollTop(){
+			var ptopnus=$(".menu").offset().top;
+			var currentNus=$(".menubar a.active").eq(0).offset().top;
+			let real=currentNus-ptopnus;
+			$(".menu").mCustomScrollbar("scrollTo", real);
+		}
+		// 收件箱红点显示
+			$.ajax({
+			url: '/base/getNoticeCount',
+			type: 'get',
+			dataType: 'json',
+			success: function (data) {
+				if (data.status) {
+                    var notice=data.msg;
+					window._notice = notice
+					var messageBox = $("a[name='收件箱']")
+					if(notice) {
+						messageBox.addClass("box-new-message")
+					}
+					messageBox.on("click", function() {
+						messageBox.addClass("disable")
+					})
+
+				}
+			}
+		})
+		// 收起侧边栏
+		var isclick = 1;
+		$(".menu-slide").click(function () {
+			$(this).toggleClass("menu-slide-rotate");
+			var barWidth = $('.con-left').width();//动态获侧边栏宽度
+			if (barWidth == '') {
+				barWidth = 200;
+			}
+			barWidth = parseInt(barWidth);
+			if (isclick == 1) {
+				// 收起
+				$(".con-left").animate({
+					left: "-" + barWidth + "px",
+				}, 300);
+				$(".con-right").animate({
+					"margin-left": "0px",
+				});
+				isclick = 0;
+			} else {
+				// 展开
+				var left = $(".con-left").hasClass("con-left-float") ? 20 : 0
+				$(".con-left").animate({
+					left: left + 'px'
+				}, 300);
+				$(".con-right").animate({
+					"margin-left": barWidth + "px",
+				}, 300);
+				isclick = 1;
+			}
+		});
+	</script>
+	
+<script type="text/javascript">
+	var timer;
+	function scroll(dom) {
+		var maxW = dom.find("span").width() - dom.width();
+		if(maxW <= 0){
+			return;
+		}
+		dom.css("text-overflow","unset");
+		timer = setInterval(function() {
+			dom[0].scrollLeft++;
+			if(dom[0].scrollLeft >= maxW){
+				clearInterval(timer);
+			}
+		}, 10);
+	}
+
+</script>        <div class="con-right style3" tabindex="-1">
+			<div class="pageBack" id="item_back" style="display:none;">
+    			<img src="./个人空间_files/back-btn.png">
+                <span>返回</span>
+			</div>
+            <div class="right-con" style="overflow-x: hidden; min-width: 900px; margin-top: 80px; height: calc(-80px + 100vh);">
+    			<div class="bodyBg" style="display: none;"></div>
+				<div type="" role="none" tabindex="0" aria-label="已进入菜单，请按tab键" id="centerInput" style="position: fixed;z-index: -11;"></div>
+                <div class="center" style="padding-top: 0px;" id="mainright" tabindex="-1"><iframe id="frame_content" name="frame_content" allowfullscreen="true" allowtransparency="true" frameborder="0" scrolling="auto" style="border: 0px; height:calc(100vh - 80px); float:left;position: relative;z-index: 99; background: #ffffff;" width="100%" src="./个人空间_files/interaction.html"></iframe></div>
+                <div class="" id="readEnd" aria-label="" data-read="已阅读完" tabindex="0"></div>
+            </div>
+
+    	</div>
+    </div>
+        <div class="appDownload" id="appDownload" style="display: none;">
+            <ul>
+                <li class="appDown black" onclick="downloadPc();">
+					<span class="download"><img src="./个人空间_files/download.png"></span>PC客户端下载
+                </li>
+                <li class="appDown black" onclick="downloadZb();">
+                   <span class="download"><img src="./个人空间_files/download.png"></span>直播客户端下载
+                </li>
+            </ul>
+        </div>
+    <div class="popupCon" id="pu-code">
+        <div class="popup pu-code">
+            <div class="pu-title" style="margin-top: 0;">
+                <h6>请输入邀请码</h6>
+            </div>
+            <div class="pu-con">
+                <input type="text" id="invitecode" placeholder="请输入课程、应用、小组、直播、云盘、教研室邀请码">
+            </div>
+            <div class="pu-btns">
+                <span class="btn-cancel">取消</span>
+                <span class="btn-sure">确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="popupCon" id="pu-tips">
+        <div class="popup pu-tips">
+            <div class="pu-title">
+                <h6>提示</h6>
+            </div>
+            <div class="pu-con">
+                <img src="./个人空间_files/errorTips.png" alt="">
+                <p>该邀请码应用暂无pc端访问方式</p>
+            </div>
+            <div class="pu-btns">
+                <span class="btn-cancel">取消</span>
+                <span class="btn-sure">确定</span>
+            </div>
+        </div>
+    </div>
+    <div class="popupCon" id="pu-course">
+        <div class="popup pu-course" style="width: 440px; height: auto;">
+            <div class="pu-title">
+                <h6>应用详情</h6>
+                <span class="pu-close"></span>
+            </div>
+            <div class="pu-con">
+                <img src="https://i.chaoxing.com/base?vflag=true&amp;fid=29&amp;backUrl=http://v2.chaoxing.com" class="course-cover" alt="">
+                <div class="course-mes">
+                    <h6></h6>
+                </div>
+				<input type="hidden" id="appId" value="">
+				<input type="hidden" id="appCode" value="">
+				<input type="hidden" id="appUrl" value="">
+				<input type="hidden" id="appName" value="">
+            </div>
+            <div class="pu-btns">
+                <span class="btn-join">访问应用</span>
+            </div>
+        </div>
+    </div>
+	
+    <div class="pouop puTips" id="puTips">
+        <!--    mark-icon.png  sucese-icon.png  添加成功  添加失败-->
+        <img src="./个人空间_files/error-icon.png" alt="">
+        <p></p>
+    </div>
+	
+    <div class="popup" style="display:none" id="sitePopup">
+    	<div class="window">
+    		<div class="p-title">
+切换单位/角色				<span class="close"></span>
+			</div>
+    		<div class="search">
+    			<input type="text" placeholder="请输入单位名称/fid搜索" id="searchName" oninput="searchSiteList();">
+				<span onclick="searchSiteList();" style="cursor: pointer;">搜索</span>
+    		</div>
+    		<div class="company">
+    			<ul>
+    
+    			</ul>
+    		</div>
+    	</div>
+    </div>
+	
+    <div class="z-popup-wrap">
+        <div class="pu-del">
+            <div class="pu-title">提示</div>
+            <div class="pu-con">
+                <img src="./个人空间_files/errorTips.png" alt="">
+                <div class="z-tips">由于您在本页面长时间未操作，系统将刷新页面，请您稍后再进行操作</div>
+            </div>
+            <div class="pu-btn">
+                <span>确认</span>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="./个人空间_files/jquery.mCustomScrollbar.concat.min.js.下载"></script>
+<script type="text/javascript" src="./个人空间_files/comon.js.下载"></script>
+<script type="text/javascript" src="./个人空间_files/page.js.下载"></script>
+<script type="text/javascript" src="./个人空间_files/iframeResizer.min.js.下载"></script>
+<script>
+	var siteFid = '29';
+	var tid = '45139';
+	var page=1;
+	var pageSize=10;
+	var scrollFlag=true;
+    function setTopHeight() {
+        // topHeight的值从left.vm读取
+        $(".header .space-unit").css('height',topHeight)
+        $(".header .space-con").css('height',topHeight)
+        $(".header").css('height',topHeight)
+
+        $(".con-left.con-left-float").css('top', topHeight + 20).css("height", "calc(100vh - " + (topHeight + 20 * 2) + "px)")
+        $(".con-left:not(.con-left-float)").css("height", "calc(100vh - " + (topHeight) + "px)")
+        $(".con-right .right-con>.center>iframe").css("height", "calc(100vh - " + (topHeight) + "px)")
+        setRightHeight(topHeight)
+    }
+
+    $(document).ready(function () {
+        setTopHeight()
+        if (siteFid == 122826){ //单位定制增加无障碍工具栏
+            var script = document.createElement('script');
+            script.src = "https://mh.chaoxing.com/sv2/mh1plugs/guide-components.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+
+            setTimeout(function(){
+                if($("#tabbox").length>0 && !$("#tabbox").is(':hidden')){
+                    $("#openRead").addClass('hasOpen').text('关闭无障碍面板');
+                }
+            },2200)
+
+            $("#openRead").click(function() {
+                if($(this).hasClass('hasOpen')){
+                    accessiblePlugs.closetools();
+                    $(this).removeClass('hasOpen').text('开启无障碍面板')
+                }else{
+                    $(this).addClass('hasOpen');
+                    $(this).text('关闭无障碍面板');
+                    if(accessiblePlugs.isFirstOpen){
+                        accessiblePlugs.resetDom();
+                        accessiblePlugs.isFirstOpen = false;
+                    }else{
+                        accessiblePlugs.openguid();
+                    }
+                }
+            });
+
+            $("body").on('click','#contents div:last-child',function(){
+                $("#openRead").removeClass('hasOpen').text('开启无障碍面板');
+            })
+        }
+	  $(".con-left").css("top",$(".r-header").height());
+        /* 导航下拉 */
+        $(".head-nav-more .head-more").click(function (e) {
+            e.stopPropagation();
+            $(this).next().stop().slideToggle('fast');
+        });
+        $(document).click(function (e) {
+            e.stopPropagation();
+            $(".head-more-list").slideUp('fast');
+        });
+        //   删除头部导航
+        $(".head-nav").on('click', ".head-nav-list li .nav-close", function (e) {
+            e.stopPropagation();
+            $(this).parents('li').remove();
+            var moreLi = $(".head-more-list ul li");
+            var dataIdThis=$(this).parent().find('.nav-name').attr('data-id');
+            if (moreLi.length > 0) {
+                var moreFistLi = moreLi.eq(0).remove();
+                $(".head-nav-list ul").append(moreFistLi);
+                if ($(".head-more-list ul li").length == 0) {
+                    $(".head-nav-more").hide();
+                }
+            }
+        });
+        $(".head-nav").on('click', ".head-more-list li .nav-close", function (e) {
+            e.stopPropagation();
+            $(this).parents('li').remove();
+            if ($(".head-more-list ul li").length == 0) {
+                $(".head-nav-more").hide();
+            }
+        });
+
+        document.onkeydown = function(e) {
+            if(e.keyCode === 13) {
+                document.activeElement.onclick(e);
+                $("#centerInput").click();
+            }
+        };
+
+        var a
+        var pop = true
+        if (siteFid == 130653 && pop){
+            siteListShow1();
+            function siteListShow1(){
+                $("body").css("overflow","hidden")
+                $('#searchName').attr('disabled',true)
+                $.ajax({
+                    url:'/base/cacheUserOrg',
+                    data:{searchName:'',_t:new Date()},
+                    dataType:'json',
+                    type:'post',
+                    success:function(data){
+                        if(data.site.length > 0){
+                            a=data.count;
+                            var html = "";
+                            for ( var j = 0; j < data.site.length; j++) {
+                                html += "<li id = '"+data.site[j].fid+"' onclick=\"switchSite("+data.site[j].fid+",'"+data.site[j].schoolname+"',this,'"+data.site[j].wfworg+"',"+data.site[j].tid+",'"+data.site[j].roleid+"')\"";
+                                if(siteFid == data.site[j].fid && tid == data.site[j].tid){
+                                    html += " class=\"active\"";
+                                    status = 1;
+                                }
+                                html += " title='"+ data.site[j].schoolname+"'><h3>"+data.site[j].schoolname+" </h3><span class='unit-select'></span></li>";
+                            }
+                            $("#sitePopup ul").html(html);
+                        }else{
+                            $("#sitePopup ul").html('');
+                        }
+                        //多角色的时候展示
+                        if(parseInt(a) > 1){
+                            $("#sitePopup").show();
+                        }
+                        $('#searchName').attr('disabled',false)
+                    }
+                })
+            }
+        }
+    });
+
+	function setNavList(dataId,navUrl,_this,aot_value) {
+        var dataName ='';
+		if(dataId!=null && dataId!=undefined && dataId=='account' ){
+			dataName = '账号管理';
+		}else{
+			dataName = $(_this).attr("name");
+		}
+		var onc="#first"+dataId;
+        var setUrlT ="setUrl('"+dataId+"','"+navUrl+"','"+onc+"','"+aot_value+"');";
+		$(".head-nav-list ul li").removeClass('cur');
+		$(".head-more-list ul li").removeClass('cur');
+		var dataLi=$("#nav"+dataId);
+		if(dataLi.length>0){
+			dataLi.addClass('cur');
+		}else{
+			var navLen=$(".head-nav-list ul li").length;
+			if(navLen>5){
+				$(".head-nav-more").show();
+				var navListStr2 = '<li class="cur" id="nav'+dataId+'"><span class="nav-name" data-id="'+dataId+'" onclick="' + setUrlT + '">' + dataName + '</span><span class="nav-close"></span></li>';
+				$(".head-more-list ul").append(navListStr2);
+			}else{
+				 $(".head-nav-more").hide();
+				 var navListStr1 = '<li class="cur" id="nav'+dataId+'"><span class="nav-name" data-id="'+dataId+'" onclick="' + setUrlT + '">' + dataName + '</span><span class="nav-close"></span></li>';
+				 $(".head-nav-list ul").append(navListStr1);
+			}
+		}
+    };
+	function siteListShow(){
+		$("body").css("overflow","hidden")
+        $('#searchName').attr('disabled',true)
+        $.ajax({
+            url:'/base/cacheUserOrg',
+			data:{searchName:'',_t:new Date()},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                if(data.site.length > 0){
+                    var html = "";
+                    for ( var j = 0; j < data.site.length; j++) {
+                        html += "<li id = '"+data.site[j].fid+"' onclick=\"switchSite("+data.site[j].fid+",'"+data.site[j].schoolname+"',this,'"+data.site[j].wfworg+"',"+data.site[j].tid+",'"+data.site[j].roleid+"')\"";
+                        if(siteFid == data.site[j].fid && tid == data.site[j].tid){
+                            html += " class=\"active\"";
+                        }
+						html += " title='"+ data.site[j].schoolname+"'><h3>"+data.site[j].schoolname+" </h3><span class='unit-select'></span></li>";
+                    }
+                    $("#sitePopup ul").html(html);
+                }else{
+					$("#sitePopup ul").html('');
+				}
+                $('#searchName').attr('disabled',false).focus()
+                $('#sitePopup .company li:visible:first').addClass('hover-cla').siblings().removeClass('hover-cla');
+                $("#sitePopup .company").scrollTop(0)
+            }
+        })
+		$("#sitePopup").show();
+	}
+	
+	function searchSiteList(){
+		$("body").css("overflow","hidden")
+		var searchName=$("#searchName").val();
+		if(searchName==null || searchName==undefined ){
+			searchName='';
+		}
+		if(searchName != '') {
+			var lis = $("#sitePopup ul li");
+			if(lis != null) {
+				for(var i = 0; i <= lis.length; i++) {
+					var li = lis[i];
+					if(i == 1) {
+						//alert($(li).attr('id'));
+						//alert($(li).attr('title'));
+						//alert(searchName);
+					}
+					var id = $(li).attr('id') + "";
+					var title = $(li).attr('title') + "";
+					if(id == searchName || title.indexOf(searchName) != -1) {
+                        // 删除span, 保留内容
+                        // 将关键词换个颜色
+                        $(li).find('h3 span').contents().unwrap();
+                        let nameHtml = $(li).find('h3').html()
+                        if (nameHtml) {
+                            nameHtml=nameHtml.replace(searchName,'<span style="color: #4a68d1">'+searchName+'</span>');
+                        }
+                        $(li).find('h3').html(nameHtml)
+						$(li).show();
+					}else {
+						$(li).hide();
+					}
+				}
+			}
+		}else {
+			var lis = $("#sitePopup ul li");
+			if(lis != null) {
+				for(var i = 0; i <= lis.length; i++) {
+					$(lis[i]).show();
+                    $(lis[i]).find('h3 span').contents().unwrap();
+				}
+			}
+		}
+        $('#sitePopup .company li:visible:first').addClass('hover-cla').siblings().removeClass('hover-cla');
+        $("#sitePopup .company").scrollTop(0)
+	}
+
+
+    // 键盘是否按下
+    let IS_KEYCODE=true
+    // 鼠标移入,加样式
+    $(document).on('mouseenter', '#sitePopup .company li', function () {
+        if (IS_KEYCODE) {
+            $(this).addClass('hover-cla').siblings().removeClass('hover-cla');
+        }
+    })
+    $(document).on('keydown', function (e) {
+        // 如果隐藏不管了
+        if ($('#sitePopup').is(':hidden')) {
+            return
+        }
+        IS_KEYCODE = false;
+        // 获取元素在可见元素集合中的索引
+        let hoverDom = $("#sitePopup .hover-cla");
+        let index = hoverDom.parent().children(':visible').index(hoverDom);
+        let changeUnitIndex = index ? index : 0;
+        switch (e.keyCode) {
+                // 上
+            case 38: {
+                if (changeUnitIndex > 0 && changeUnitIndex < $("#sitePopup li:visible").length) {
+                    changeUnitIndex--;
+                    $("#sitePopup li:visible").eq(changeUnitIndex).addClass('hover-cla');
+                    $("#sitePopup li:visible").eq(changeUnitIndex + 1).removeClass('hover-cla');
+                }
+                let li = $("#sitePopup li:visible").eq(changeUnitIndex);
+                var boxH = $("#sitePopup .company").height();
+                var offSetTop = li.position().top;
+                var liH = li.height();
+                var scrollTop = $("#sitePopup .company").scrollTop();
+                if (offSetTop < 0 && scrollTop > 0) {
+                    $("#sitePopup .company").scrollTop(scrollTop - liH);
+                }
+                break;
+            }
+                // 下
+            case 40: {
+                if (changeUnitIndex < $("#sitePopup li:visible").length) {
+                    changeUnitIndex++;
+                    let li = $("#sitePopup li:visible").eq(changeUnitIndex);
+                    li.addClass('hover-cla');
+                    $("#sitePopup li:visible").eq(changeUnitIndex - 1).removeClass('hover-cla');
+
+                    if (changeUnitIndex == $("#sitePopup li:visible").length) {
+                        $("#sitePopup li:visible").eq(0).addClass('hover-cla');
+                        changeUnitIndex = 0;
+                        $("#sitePopup .company").scrollTop(0)
+                    }
+                    li = $("#sitePopup li:visible").eq(changeUnitIndex);
+                    var boxH = $("#sitePopup .company").height();
+                    var offSetTop = li.position().top;
+                    var liH = li.height();
+                    var scrollTop = $("#sitePopup .company").scrollTop();
+                    if (offSetTop + scrollTop > boxH && offSetTop + scrollTop - boxH + liH > scrollTop) {
+                        $("#sitePopup .company").scrollTop(offSetTop + scrollTop - boxH + liH);
+                    }
+                }
+                break;
+            }
+                // 回车
+            case 13: {
+                //回车切换单位
+                $('#sitePopup .hover-cla').click()
+                break
+            }
+            default:break;
+        }
+        IS_KEYCODE = true
+    }).on('keyup', function (e) {
+        // 如果隐藏不管了
+        if ($('#sitePopup').is(':hidden')) {
+            return
+        }
+        IS_KEYCODE = true
+    })
+
+	$("#sitePopup .close").click(function(){
+	  $("#sitePopup").hide();
+	  $("body").css("overflow","auto")
+	})
+	
+	$("#sitePopup .company").on("click","li",function(){
+		$("#sitePopup").hide();
+		$(this).addClass("active").siblings().removeClass("active");
+	})
+	
+	//  添加邀请码
+    $(".appCode").click(function () {
+        $("#pu-code").fadeIn();
+    });
+	//   邀请码确定
+    $("#pu-code").on("click",".pu-btns .btn-sure",function () {
+		var invitecode=$("#invitecode").val();
+		if(invitecode==null || invitecode==undefined ){
+			invitecode='';
+		}
+        $.ajax({
+            url:'/base/getInviteCode',
+			data:{invitecode:invitecode,fid:siteFid,_t:new Date()},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                if(data.status){
+					if(data.flag==1 || data.flag=='1'){
+						if(data.appUrl!=null && data.appUrl!=undefined && data.appUrl!='' && data.appUrl!='null'){
+							$("#pu-course").find(".pu-con img").attr("src",data.appImage);
+							$("#pu-course").find(".pu-con .course-mes h6").text(data.appName);
+							$("#appCode").val(invitecode);
+							$("#appId").val(data.appId);
+							$("#appUrl").val(data.appUrl);
+							$("#appName").val(data.appName);
+							$("#pu-code").fadeOut();
+                        	$("#pu-course").show();
+						}else{
+							$("#pu-code").fadeOut();
+                       		$("#pu-tips").show();
+						}
+					} else if(data.flag==2 || data.flag=='2'){
+                        $("#pu-code").fadeOut();
+                        window.parent.window.setUrl('common',data.url);
+                    }else{
+						$("#pu-code").fadeOut();
+						window.open(data.url);
+					}
+                }else{
+					var msg='获取失败';
+					if(data.msg!=null && data.msg!=undefined && data.msg!=''){
+						msg=data.msg;
+					}
+					$("#puTips").find("p").text(msg);
+		            $("#puTips").fadeIn();
+                    setTimeout(function () {
+                        $("#puTips").fadeOut()
+                    },2000)
+				}
+            }
+        })
+    });
+    //   邀请码取消
+    $("#pu-code").on("click",".pu-btns .btn-cancel",function () {
+        $(".popupCon").fadeOut();
+    });
+	//    课程确定
+    $("#pu-course").on("click",".pu-btns .btn-join",function () {
+		var appUrl=$("#appUrl").val();
+		var appCode=$("#appCode").val();
+		var appName=$("#appName").val();
+		var appId=$("#appId").val();
+		if(appId!=null && appId!=undefined && appId!='' &&
+			appCode!=null && appCode!=undefined && appCode!='' &&
+				appUrl!=null && appUrl!=undefined && appUrl!='' ){
+    		$.ajax({
+                url:'/base/setRecentsApp',
+    			data:{appName:appName,appCode:appCode,appId:appId,_t:new Date()},
+                dataType:'json',
+                type:'post',
+                success:function(data){}
+    		})
+            $("#pu-course").fadeOut()
+			window.open(appUrl);
+		}
+    });
+
+	//    课程取消
+    $("#pu-course").on("click",".pu-close",function () {
+		 $("#pu-course").fadeOut()
+	});
+	//  提示取消
+    $("#pu-tips").on("click",".pu-btns .btn-cancel",function () {
+        $("#pu-tips").fadeOut();
+    });
+    //  提示确定
+    $("#pu-tips").on("click",".pu-btns .btn-sure",function () {
+        $(".popupCon").fadeOut();
+    })
+	//session过期提示
+	$(".z-popup-wrap").on("click",".pu-del .pu-btn span",function () {
+		$(".z-popup-wrap").hide();
+		location.reload(true);
+	})
+</script>
+
+<!-- 子页面弹出框全页面覆盖公共方法 -->
+<script>
+	var offsetFlag=0;
+ 	window.onload = function () {
+        // 父页面初始信息
+        var offsetTop = $("#frame_content").offset().top;
+        var offsetLeft = $("#frame_content").offset().left;
+        var iframeH = $(window).height() - $(".header").height();
+        var iframeW = $("#frame_content").width() - offsetLeft;
+       var marObj = {
+            paddingL: offsetLeft,
+            paddingT: offsetTop,
+            paddingR: 0,
+            fullScreen: 1,
+            cmd: 1001,
+            bottom: 0,
+            height: iframeH,
+            left: offsetLeft,
+            right: 0,
+            toggle: true,
+            top: offsetTop,
+            width: iframeW
+        };
+		var marObj1 = {
+                        paddingL: offsetLeft,
+                        paddingT: offsetTop,
+                        paddingR: 0,
+                        fullScreen: 1,
+                        cmd: 1001,
+                        bottom: 0,
+                        height: iframeH,
+                        left: 0,
+                        right: 0,
+                        toggle: true,
+                        top: 0,
+                        width: iframeW
+                    };
+        // 父页面向子页面传递信息
+		document.getElementById('frame_content').contentWindow.postMessage(JSON.stringify(marObj1), "*");
+        // 获取子页面传过来的信息
+        window.addEventListener('message', function (e) {
+	
+            try {
+			var data = JSON.parse(e.data);
+			  if(data.toggle == true || data==""){
+			    if(data.color){
+				  document.getElementById('frame_content').contentWindow.postMessage(JSON.stringify(marObj1), '*');
+				}else{
+				   document.getElementById('frame_content').contentWindow.postMessage(JSON.stringify(marObj), '*');
+				}
+			   
+			  }else{
+			    document.getElementById('frame_content').contentWindow.postMessage(JSON.stringify(marObj1), '*');
+			  }
+
+                if (data!=null && data!=undefined && data.toggle!=null && data.toggle!=undefined && data.toggle == true) {
+                    if(data.color){
+					  
+					  $("#frame_content").css({
+                        position: "fixed",
+                        left: 0,
+                        top: 0,
+                        'z-index': 99999,
+                        width: '100%',
+                        height: '100%',
+                        'padding-left':offsetLeft+'px',
+                        'padding-top':offsetTop+'px',
+                        background:data.color,
+						'box-sizing': 'border-box',
+						'min-width':'1400px'
+                    })
+					}else{
+					  $("#frame_content").css({
+                            position: "fixed",
+                            left: 0,
+                            top: 0,
+                            'z-index': 99999,
+                            width: '100%',
+                            height: '100%', 
+							background:'none',
+                            'box-sizing': 'border-box'
+                        })
+					}
+					
+                } else {
+                    $("#frame_content").css({
+                        position: "initial",
+                        left: 0,
+                        top: 0,
+                        'z-index': 2,
+                        width: iframeW + 'px',
+                        height:'calc(100vh - 80px)',
+                        'padding-left':0,
+                        'padding-top':0,
+
+						'min-width':'100%'
+                    })
+					
+
+                    document.getElementById('frame_content').postMessage(JSON.stringify(marObj1), '*');
+                }
+    			if(data!=null && data!=undefined && data.type!=null && data.type!=undefined && data.type=='notice' ){
+    			}
+            } catch (e) {
+
+            }
+
+        }, false);
+    };
+
+</script>
+<script type="text/javascript">
+    var iframe = document.getElementById("frame_content");
+    iframe.onload = function(){
+		try{
+            iframe.contents().find(".Wrapbody").css("margin","0 auto");
+        	iframe.contents().find(".con-right").css("width","100%");
+        }catch(err){
+        }
+    }
+	function iframeWidthResize(){
+    	if($('.left-con').is(':hidden')){
+        	 var iframeW = $(window).width()-120;
+			 if(iframeW<1060){
+			 	iframeW=1060;
+			 }
+        	$(".right-con .center").css({width:iframeW,background:"#ffffff",overflow:"hidden",margin:"0 60px"})
+            $(".right-con .center").width(iframeW);
+			$("#frame_content").css({width: iframeW});
+    	}else{
+        	var iframeW = $(window).width()-$(".con-left").width()-120;	  
+			 if(iframeW<1060){
+			 	iframeW=1060;
+			 }
+        	$(".right-con .center").css({width:iframeW,background:"#ffffff",overflow:"hidden",margin:"0 60px"})
+            $(".right-con .center").width(iframeW);
+			$("#frame_content").css({width: iframeW});
+        	}
+	};
+	
+    $(window).resize(function () {
+		if(offsetFlag==0){
+    		var iframeH=$(window).height()-$(".space-unit").height()-$(".user-block").height();
+    		$(".left-con .menu").height(iframeH);
+    		setTimeout(function(){
+        		var winH=$(window).height();
+        		/*$("#frame_content").css({
+        			height:winH,
+        			'min-height':"inherit"
+                });*/
+    		},300)
+		}else{
+    		setTimeout(function(){
+        		var winH=$(window).height();
+        		$("#frame_content").css({
+                    position: "fixed",
+                    left: 0,
+                    top: 0,
+                    'z-index': 99999,
+                     width: '100%',
+                     height:winH,
+                     'min-height':"inherit"
+                 });
+    		},300)
+		}
+	});
+	var domain="chaoxing.com";
+	if(domain==null || domain==undefined || domain=="" || domain=="null" ){
+		document.domain ="chaoxing.com";
+	}else{
+		document.domain =domain;
+	}
+		function setTab(id){
+			$("#li_"+id).addClass("activess").siblings().removeClass("activess");
+			frame_content.window.setTab_1(id);
+		}
+
+        var winScroll=$(window.parent.window) ? $(window.parent.window) : $(window);
+        var docScroll=$(window.parent.document) ? $(window.parent.document) : $(document);
+        winScroll.scroll(function(){
+            if (winScroll.scrollTop()+winScroll.height() >= docScroll.height()-5) {
+                try{
+                    document.getElementById('frame_content').contentWindow.loading(); 
+                }catch(err){
+                    return false;
+                }
+            }
+        });
+        
+        function reloadImg(){
+            $(".head-img").attr("src",$(".head-img").attr("src")+"?t="+Math.random());
+            $(".icon-head").attr("src",$(".icon-head").attr("src")+"?t="+Math.random());
+        }
+		
+        var iframe=document.getElementById("frame_content");
+		
+		
+function setScheduledTask(hour, minute, callTask) { 
+    let taskTime = new Date(); 
+    taskTime.setHours(hour); 
+    taskTime.setMinutes(minute); 
+    let timeDiff = taskTime.getTime() - (new Date()).getTime(); // 获取时间差
+    timeDiff = timeDiff > 0 ? timeDiff : (timeDiff + 24 * 60 * 60 * 1000); 
+    setTimeout(function() { 
+		callTask(6); // 首次执行
+        setInterval(function () {
+            callTask(6); // 传递参数给callTask函数
+        }, 24 * 60 * 60 * 1000); // 24小时为循环周期
+    }, timeDiff);
+}
+setScheduledTask(3, 0, logout);
+  
+  
+
+</script>
+
+<script type="module" src="./个人空间_files/index.js.下载" onload="openStudyPartner()"></script>
+<script>
+    // 初始化智慧学伴
+    function openStudyPartner() {
+        console.log('初始化智慧学伴');
+        window.initStudyPartner({
+            vadOrigin: "https://futurelearning.chaoxing.com/api",
+        });
+    }
+
+</script>
+
+
+<div class="floatLayer" id="to_top" style="z-index:1000;position: fixed;_position: absolute;_top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));right: 30px;bottom:0px;">
+                <div class="update-notice">
+                    <a href="https://mooc2-ans.chaoxing.com/mooc2-ans/visit/announcement" target="_blank" onclick="$(&#39;.mark-red-hander&#39;).hide()">
+                        <img src="./个人空间_files/publicnotice.png">
+                        <span>更新公告</span>
+                        <i id="showRedPoint" style="display: none" class="mark-red mark-red-hander"></i>
+                    </a>
+                    <div id="showRedTip" style="display: none" class="notice-tip mark-red-hander">
+                        <p class="color-white fs14">发现新版本</p>
+                    </div>
+                </div>
+                <a href="https://mooc1.chaoxing.com/zt/216847184.html" target="_blank">
+                        <img src="./个人空间_files/usehelp2.png">
+                        <span>使用帮助</span>
+
+                </a>
+                            <a href="https://robot.chaoxing.com/chat?unitId=40080&amp;robotId=dbad6e4fa2e4415189a78868760c8792&amp;referUrl=i.chaoxing.com" target="_blank">
+                    <img src="./个人空间_files/onlinecustomer.png">
+                        <span>在线客服</span>
+                </a>
+                        <a href="javascript:;" id="goTop" style="display: none;" onclick="$(&#39;html,body&#39;).animate({scrollTop:0},600);">
+            <img src="./个人空间_files/backtop.png">
+            <span>返回顶部</span>
+        </a>
+    </div></body><script src="./个人空间_files/jquery-3.7.1.min.js.下载"></script><script src="./个人空间_files/CxRobotSdkJs.js.下载"></script></html>
